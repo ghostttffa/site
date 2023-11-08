@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="UTF-8">
+    <title>Форма</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <style>
+        #receipt {
+            display: none;
+        }
+    </style>
+
+    <script src="../js/index.js"></script>
+    <script>
+        function getSelectedOption() {
+            // Get the radio buttons by name
+            var radioButtons = document.getElementsByName('summ');
+
+            // Loop through the radio buttons to find the selected option
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    // Display the value of the selected option
+                    console.log(radioButtons[i].value);
+                    alert('Selected value: ' + radioButtons[i].value);
+                    break; // Exit the loop once the selected option is found
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav id="navigation" class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.html">О моде</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tendency.html">Тенденции моды</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ideal.html">Идеальный образ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ecology.html">Мода и экология</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="culture.html">Мода и культура</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="forms.html">Форма</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="forms2.html">Форма2</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="text-primary"> Форма </h1>
+        <p class="lead text-secondary">
+        </p>
+    </div>
+    <div class="container">
+        <form action="" method="get" target="_self" onsubmit="return submitForm(); getSelectedOption();" id="form" autocomplete="on">
+            <fieldset>
+                <p>Имя: <input type="Text" name="name" placeholder="Сидоров Иван Иванович" size="30" id="name"></p>
+                <p>Номер телефона: <input type="Number" name="phone" placeholder="8999999999" size="11"></p>
+                <p>Дата посещения: <input type="date" name="date" placeholder="" size="30" id="date"></p>
+
+                <br>
+                <br>
+                <p>Возраст: <input type="number" name="age" placeholder="20" size="3"></p>
+                <p>Любимый стиль:
+                    <select>
+                        <option>Грандж</option>
+                        <option>Бохо</option>
+                        <option>Кэжуал</option>
+                    </select>
+                </p>
+                <p>Каких дизайнеров вы бы хотели встретить ? <input type="text" name="suggestions" size="20" id="suggestions"></p>
+                <br>
+                <br>
+
+                <p>Почему Вы выбрали именно нас ?</p>
+
+                <input type="checkbox" id="option1" name="why" value="option1">
+                <label>Недалеко от дома</label><br>
+                <input type="checkbox" id="option2" name="why" value="option2">
+                <label>Увидел рассылку</label><br>
+                <input type="checkbox" id="option3" name="why" value="option3">
+                <label>Посоветовали</label><br>
+                <br>
+                <br>
+                <p>Вы будете рекомендовать нас ?</p>
+                <input type="radio" id="yes" name="rec" value="Да">
+                <label type="radio" for="rec" id="yes">Да</label> <br>
+                <input type="radio" id="no" name="rec" value="Нет">
+                <label type="radio" for="rec" id="no">Нет</label> <br>
+                <br>
+                <p>Какую сумму Вы бы потратили на дизайнерскую вещь?</p>
+                <input type="radio" id="more_100" name="summ" value="Да">
+                <label type="radio" for="rec" id="yes">Больше 100 у.е.</label> <br>
+                <input type="radio" id="les_100" name="summ" value="Нет">
+                <label type="radio" for="rec" id="no">Меньше 100 у.е.</label> <br>
+
+
+                <p><input type="Reset" name="Reset" value="Очистить">
+                    <input type="Submit" name="submit" value="Отправить" class="Button" id="submit">
+                </p>
+
+            </fieldset>
+        </form>
+        <br>
+
+    </div>
+
+
+
+    <div class="container" id="receipt">
+        <p>Ваш чек: </p>
+        <span>Дата посещения:</span>
+        <span id="date_res">---</span>
+        <br>
+
+        <span>Имя посетителя:</span>
+        <span id="name_res">---</span>
+        <br>
+        <span>Предпочтения:</span>
+        <span id="summ_res">---</span>
+    </div>
+
+
+</body></html>
